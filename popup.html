@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Spotify Remote</title>
+    <style>
+      body {
+          min-width: 200px;
+          min-height: 200px;
+      }
+    </style>
+    
+    <script src="jquery.min.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <center>
+      <div class="transport-buttons">
+	<button id="prev">Previous</button>
+	<button id="playpause">Loading</button>
+	<button id="next">Next</button>
+      </div>
+      <br />
+      <div class="song-info">
+	<div id="title"></div>
+	<div id="artist"></div>
+	<br />
+	<img id="art" src="" height="200" width="200" />
+	<!--<div id="album"></div>-->
+      </div>
+    </center>
+  </body>
+</html>

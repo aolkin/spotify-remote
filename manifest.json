@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+
+    "name": "Spotify Remote",
+    "description": "Provides a browser action for controlling an open spotify tab.",
+    "version": "0.2",
+
+    "permissions": [
+	"https://play.spotify.com/"
+    ],
+    "browser_action": {
+	"default_icon": "icon.png",
+	"default_popup": "popup.html"
+    },
+    "content_scripts": [
+	{
+	    "matches": ["https://play.spotify.com/*"],
+	    "js": [ "content.js" ]
+	}
+    ]
+}
