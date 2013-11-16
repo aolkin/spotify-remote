@@ -4,7 +4,8 @@ var data = {
     checker: null,
     els: {},
     parent: function(attr) {
-	return d.els[attr] && d.els[attr].parentElement;
+	return d.els[attr] && d.els[attr].parentElement &&
+	    d.els[attr].parentElement.parentElement;
     }
 };
 var d = data;

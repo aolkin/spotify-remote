@@ -17,5 +17,8 @@
 	    "matches": ["https://play.spotify.com/*"],
 	    "js": [ "content.js" ]
 	}
-    ]
+    ],
+    "background": {
+	"scripts": ["bg.js"]
+    }
 }
