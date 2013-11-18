@@ -12,7 +12,14 @@ function send(message,callback) {
 	callback = processData;
     }
     chrome.tabs.query({url: "https://play.spotify.com/*"}, function(tabs) {
-	chrome.tabs.sendMessage(tabs[0].id, message, callback);
+	if (tabs.length < 1) {
+	    chrome.tabs.create({
+		url: "https://play.spotify.com/",
+		pinned: true
+	    });
+	} else {
+	    chrome.tabs.sendMessage(tabs[0].id, message, callback);
+	}
     });
 }
 

@@ -3,7 +3,7 @@
 
     "name": "Spotify Remote",
     "description": "Provides a browser action for controlling an open spotify tab.",
-    "version": "0.2",
+    "version": "0.5",
 
     "permissions": [
 	"https://play.spotify.com/"
