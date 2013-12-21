@@ -29,6 +29,14 @@ $(function(){
 	send({action: this.id});
     });
 
+    $("#focus").click(function(){
+	chrome.tabs.query({url: "https://play.spotify.com/*"},
+			  function(tabs) {
+			      chrome.tabs.update(tabs[0].id,
+						 {selected:true});
+			  });
+    });
+
     send({action:"getdata"});
 });
 

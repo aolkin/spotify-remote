@@ -5,7 +5,8 @@ var data = {
     els: {},
     parent: function(attr) {
 	return d.els[attr] && d.els[attr].parentElement &&
-	    d.els[attr].parentElement.parentElement;
+	    d.els[attr].parentElement.parentElement &&
+	    d.els[attr].parentElement.parentElement.parentElement;
     }
 };
 var d = data;
@@ -14,13 +15,13 @@ function updatePoller(justReturnData) {
     d.doc = document.getElementById("app-player").contentDocument;
     if (d.doc) {
 	var newData = {};
-	d.els.art = (d.parent("art") && d.els.art) ||
+	d.els.art = (d.doc.contains(d.els.art) && d.els.art) ||
 	    d.doc.querySelector(".sp-image-img");
-	d.els.title = (d.parent("title") && d.els.title) ||
+	d.els.title = (d.doc.contains(d.els.title) && d.els.title) ||
 	    d.doc.querySelector("#track-name a");
-	d.els.artist = (d.parent("artist") && d.els.artist) ||
+	d.els.artist = (d.doc.contains(d.els.artist) && d.els.artist) ||
 	    d.doc.querySelector("#track-artist a");
-	d.els.playpause = (d.parent("playpause") && d.els.playpause) ||
+	d.els.playpause = (d.doc.contains(d.els.playpause) && d.els.playpause) ||
 	    d.doc.querySelector("#play-pause");
 	if (d.els.art && d.els.title && d.els.artist) {
 	    newData.title = d.els.title.innerText;
