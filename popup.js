@@ -34,10 +34,26 @@ $(function(){
 			  function(tabs) {
 			      chrome.tabs.update(tabs[0].id,
 						 {selected:true});
+			      chrome.windows.update(tabs[0].windowId,
+						    {focused:true});
 			  });
     });
 
+    $("#popout").click(function(){
+	chrome.windows.create({
+	    url: "popup.html?popout",
+	    width: 220,
+	    height: 384,
+	    focused: true,
+	    type: "panel"
+	});
+    });
+
     send({action:"getdata"});
+
+    if (location.search.indexOf("popout") > -1) {
+	$("#popout").hide();
+    }
 });
 
 chrome.runtime.onMessage.addListener(processData);

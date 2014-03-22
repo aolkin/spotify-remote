@@ -2,14 +2,16 @@
 <html>
   <head>
     <title>Spotify Remote</title>
+    <link rel="shortcut icon" href="/icon.png">
+
     <style>
       body {
           min-width: 200px;
           min-height: 200px;
           font-family: sans-serif;
       }
-    </style>
-    
+    </style>    
+
     <script src="jquery.min.js"></script>
     <script src="popup.js"></script>
   </head>
@@ -20,7 +22,10 @@
 	<button id="playpause">Loading</button>
 	<button id="next">Next</button>
       </div>
-      <button id="focus">Focus Spotify</button>
+      <div>
+	<button id="focus">Show Spotify</button>
+	<button id="popout">Popout</button>
+      </div>
       <br />
       <div class="song-info">
 	<div id="title"></div>
