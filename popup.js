@@ -1,10 +1,24 @@
 
+var iterAttrs = [ "title", "artist", "current", "duration" ];
+
+var globals = {
+    item: ""
+};
+
 function processData(data,sender,sendResponse){
     $("#playpause").text(data.playing?"Pause":"Play");
     $("#art").attr("src",data.art);
-    $("#title").text(data.title);
-    $("#artist").text(data.artist);
-    //$("#album").text(data.album);
+    for (var i = 0; i < iterAttrs.length; i++) {
+	$(document.getElementById(iterAttrs[i])).text(data[iterAttrs[i]]);
+    }
+    console.log(data);
+    if (data.itemuri && data.itemuri !== globals.item) {
+	globals.item = data.itemuri;
+	$.getJSON("http://ws.spotify.com/lookup/1/.json?uri="+data.itemuri,
+		  function(data,status,xhr){
+		      $("#album").text(data.track.album.name);
+		  });
+    }
 }
 
 function send(message,callback) {

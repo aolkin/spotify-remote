@@ -6,7 +6,8 @@
     "version": "0.5",
 
     "permissions": [
-	"https://play.spotify.com/"
+	"https://play.spotify.com/",
+	"http://ws.spotify.com/lookup/*"
     ],
     "browser_action": {
 	"default_icon": "icon.png",

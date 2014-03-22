@@ -10,6 +10,11 @@ var data = {
 	    d.els[attr].parentElement.parentElement.parentElement.parentElement
 	    && d.els[attr].parentElement.parentElement.parentElement
 	    .parentElement.parentElement;
+    },
+    getEl: function(attr,selector) {
+	d.els[attr] = (d.doc.contains(d.els[attr]) && d.els[attr]) ||
+	    d.doc.querySelector(selector);
+	return d.els[attr] || {};
     }
 };
 var d = data;
@@ -22,18 +27,15 @@ function updatePoller(justReturnData) {
 		     (data.parent("art").id != "suggestions") &&
 		     d.els.art) ||
 	    d.doc.querySelector(".sp-image-img");
-	d.els.title = (d.doc.contains(d.els.title) && d.els.title) ||
-	    d.doc.querySelector("#track-name a");
-	d.els.artist = (d.doc.contains(d.els.artist) && d.els.artist) ||
-	    d.doc.querySelector("#track-artist a");
-	d.els.playpause = (d.doc.contains(d.els.playpause) && d.els.playpause) ||
-	    d.doc.querySelector("#play-pause");
-	if (d.els.art && d.els.title && d.els.artist) {
-	    newData.title = d.els.title.innerText;
-	    newData.art = d.els.art.style.backgroundImage.slice(4,-1);
-	    newData.album = d.els.art.parentElement.parentElement.dataset.tooltip;
-	    newData.artist = d.els.artist.innerText;
+	d.getEl("playpause","#play-pause");
+	newData.title = d.getEl("title","#track-name a").innerText;
+	newData.artist = d.getEl("artist","#track-artist a").innerText;
+	newData.current = d.getEl("current","#track-current").innerHTML;
+	newData.duration = d.getEl("duration","#track-length").innerHTML;
+	if (d.els.art && d.els.title && d.els.artist && d.els.current && d.els.duration) {
 	    newData.playing = d.els.playpause.className == "playing";
+	    newData.art = d.els.art.style.backgroundImage.slice(4,-1);
+	    newData.itemuri = d.els.art.parentElement.parentElement.dataset.itemuri;
 	    if (justReturnData) {
 		return newData;
 	    } else {
@@ -58,4 +60,4 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
     sendResponse(updatePoller(true));
 });
 
-data.checker = setInterval(updatePoller,1000);
+data.checker = setInterval(updatePoller,500);
