@@ -6,7 +6,10 @@ var data = {
     parent: function(attr) {
 	return d.els[attr] && d.els[attr].parentElement &&
 	    d.els[attr].parentElement.parentElement &&
-	    d.els[attr].parentElement.parentElement.parentElement;
+	    d.els[attr].parentElement.parentElement.parentElement &&
+	    d.els[attr].parentElement.parentElement.parentElement.parentElement
+	    && d.els[attr].parentElement.parentElement.parentElement
+	    .parentElement.parentElement;
     }
 };
 var d = data;
@@ -15,7 +18,9 @@ function updatePoller(justReturnData) {
     d.doc = document.getElementById("app-player").contentDocument;
     if (d.doc) {
 	var newData = {};
-	d.els.art = (d.doc.contains(d.els.art) && d.els.art) ||
+	d.els.art = (d.doc.contains(d.els.art) &&
+		     (data.parent("art").id != "suggestions") &&
+		     d.els.art) ||
 	    d.doc.querySelector(".sp-image-img");
 	d.els.title = (d.doc.contains(d.els.title) && d.els.title) ||
 	    d.doc.querySelector("#track-name a");
