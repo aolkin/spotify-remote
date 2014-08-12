@@ -1,6 +1,6 @@
 Spotify Remote
 ==============
 
-A chrome browser action extension for controlling the spotify web player.
+A Google Chrome browser action and panel extension for controlling the Spotify Web Player.
 
-It currently only provides a small popup with information, the album art, and three transport buttons.
+It adds a browser action popup with transport buttons, album art, and track information, that can also be opened as a panel (with the appropriate flag enabled).
