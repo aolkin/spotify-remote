@@ -26,6 +26,7 @@ function setText(el,text) {
 	if (el.children("span").length == 2) {
 	    el.children("span").text(text);
 	} else {
+	    el.empty();
 	    for (var i = 0; i < 2; i++) {
 		$("<span>").text(text).appendTo(el);
 	    }
