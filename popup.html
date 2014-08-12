@@ -4,39 +4,41 @@
     <title>Spotify Remote</title>
     <link rel="shortcut icon" href="/icon.png">
 
-    <style>
-      body {
-          min-width: 200px;
-          min-height: 200px;
-          font-family: sans-serif;
-      }
-    </style>    
+    <link rel="stylesheet" href="css/bootstrap-3.2.0.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme-3.2.0.min.css" />
+    <link rel="stylesheet" href="css/popup.css" />
 
-    <script src="jquery.min.js"></script>
-    <script src="popup.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap-3.2.0.min.js"></script>
+    <script src="js/popup.js"></script>
   </head>
   <body>
-    <center>
-      <div class="transport-buttons">
-	<button id="prev">Previous</button>
-	<button id="playpause">Loading</button>
-	<button id="next">Next</button>
+    <div class="transport-buttons btn-group btn-group-justified">
+      <a href="#" id="popout" class="btn btn-default" title="Open Panel">
+	<span class="glyphicon glyphicon-new-window"></span>
+      </a>
+      <a href="#" id="prev" class="btn btn-default">
+	<span class="glyphicon glyphicon-fast-backward"></span>
+      </a>
+      <a href="#" id="playpause" class="btn btn-default">
+	<span class="glyphicon"></span>
+      </a>
+      <a href="#" id="next" class="btn btn-default">
+	<span class="glyphicon glyphicon-fast-forward"></span>
+      </a>
+      <a href="#" id="focus" class="btn btn-default" title="Show Spotify">
+	<span class="glyphicon glyphicon-headphones"></span>
+      </a>
+    </div>
+    <br />
+    <div class="song-info">
+      <div id="title" class="marquee"><span></span></div>
+      <div id="artist" class="marquee"><span></span></div>
+      <div id="album" class="marquee"><span></span></div>
+      <div id="position">
+	<span id="current"></span> / <span id="duration"></span>
       </div>
-      <div>
-	<button id="focus">Show Spotify</button>
-	<button id="popout">Popout</button>
-      </div>
-      <br />
-      <div class="song-info">
-	<div id="title"></div>
-	<div id="artist"></div>
-	<div id="album"></div>
-	<div id="position">
-	  <span id="current"></span> / <span id="duration"></span>
-	</div>
-	<br />
-	<img id="art" src="" height="200" width="200" />
-      </div>
-    </center>
+    </div>
+    <img id="art" src="" />
   </body>
 </html>

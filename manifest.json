@@ -5,6 +5,10 @@
     "description": "Provides a browser action for controlling an open spotify tab.",
     "version": "0.5",
 
+    "icons": {
+	"32": "icon.png"
+    },
+
     "permissions": [
 	"https://play.spotify.com/",
 	"http://ws.spotify.com/lookup/*"
@@ -16,10 +20,10 @@
     "content_scripts": [
 	{
 	    "matches": ["https://play.spotify.com/*"],
-	    "js": [ "content.js" ]
+	    "js": [ "js/content.js" ]
 	}
     ],
     "background": {
-	"scripts": ["bg.js"]
+	"scripts": ["js/bg.js"]
     }
 }
