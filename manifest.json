@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "Spotify Remote",
-    "description": "Provides a browser action for controlling an open spotify tab.",
-    "version": "0.5",
+    "name": "Spotify Web Player Remote",
+    "description": "Provides a browser action (and panel) for controlling an open instance of the Spotify Web Player.",
+    "version": "2.0",
 
     "icons": {
 	"32": "icon.png"
