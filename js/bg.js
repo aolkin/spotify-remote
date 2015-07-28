@@ -10,3 +10,15 @@ function processData(data,sender,sendResponse){
 }
 
 chrome.runtime.onMessage.addListener(processData);
+
+
+chrome.app.runtime.onLaunched.addListener(function(){
+	chrome.app.window.create("popup.html", {
+	    "outerBounds": {
+		width: 260,
+		height: 331
+	    },
+	    type: "panel",
+	    alwaysOnTop: true
+	});
+    });

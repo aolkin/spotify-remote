@@ -1,29 +1,45 @@
 {
     "manifest_version": 2,
 
-    "name": "Spotify Web Player Remote",
-    "description": "Provides a browser action (and panel) for controlling an open instance of the Spotify Web Player.",
+    "name": "Spotify Web Player Remote App",
+    "description": "Provides a panel much like GPM for controlling an open instance of the Spotify Web Player.",
     "version": "2.0",
 
     "icons": {
 	"32": "icon.png"
     },
 
+    "commands": {
+	"next-track": {
+            "description": "next track",
+            "global": true,
+            "suggested_key": {
+		"default": "MediaNextTrack"
+            }
+	},
+	"play-pause": {
+            "description": "play/pause",
+            "global": true,
+            "suggested_key": {
+		"default": "MediaPlayPause"
+            }
+	},
+	"previous-track": {
+            "description": "previous track",
+            "global": true,
+            "suggested_key": {
+		"default": "MediaPrevTrack"
+            }
+	}
+    },
     "permissions": [
 	"https://play.spotify.com/",
-	"http://ws.spotify.com/lookup/*"
+	"http://ws.spotify.com/lookup/*",
+	"alwaysOnTopWindows"
     ],
-    "browser_action": {
-	"default_icon": "icon.png",
-	"default_popup": "popup.html"
-    },
-    "content_scripts": [
-	{
-	    "matches": ["https://play.spotify.com/*"],
-	    "js": [ "js/content.js" ]
+    "app": {
+	"background": {
+	    "scripts": ["js/bg.js"]
 	}
-    ],
-    "background": {
-	"scripts": ["js/bg.js"]
     }
 }

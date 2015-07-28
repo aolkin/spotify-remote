@@ -94,16 +94,6 @@ $(function(){
 			  });
     });
 
-    $("#popout").click(function(){
-	chrome.windows.create({
-	    url: "popup.html?popout",
-	    width: 260,
-	    height: 331,
-	    focused: true,
-	    type: "panel"
-	});
-    });
-
     send({action:"getdata"});
 
     if (location.search.indexOf("popout") > -1) {
