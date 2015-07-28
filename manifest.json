@@ -3,12 +3,34 @@
 
     "name": "Spotify Web Player Remote",
     "description": "Provides a browser action (and panel) for controlling an open instance of the Spotify Web Player.",
-    "version": "2.0",
+    "version": "2.1",
 
     "icons": {
 	"32": "icon.png"
     },
-
+    "commands": {
+       "next": {
+            "description": "Next Track",
+            "global": true,
+            "suggested_key": {
+               "default": "Ctrl+Shift+9"
+            }
+       },
+       "playpause": {
+            "description": "Play/Pause",
+            "global": true,
+            "suggested_key": {
+               "default": "Ctrl+Shift+8"
+            }
+       },
+       "prev": {
+            "description": "Previous Track",
+            "global": true,
+            "suggested_key": {
+               "default": "Ctrl+Shift+7"
+            }
+       }
+    },
     "permissions": [
 	"https://play.spotify.com/",
 	"http://ws.spotify.com/lookup/*"
