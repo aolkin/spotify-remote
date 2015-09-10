@@ -29,6 +29,13 @@
             "suggested_key": {
                "default": "Ctrl+Shift+7"
             }
+       },
+       "show": {
+            "description": "Show Spotify",
+            "global": true,
+            "suggested_key": {
+               "default": "Ctrl+Shift+6"
+            }
        }
     },
     "permissions": [

@@ -20,7 +20,7 @@ function send(message,callback) {
 	if (tabs.length < 1) {
 	    chrome.tabs.create({
 		url: "https://play.spotify.com/",
-		pinned: true
+		pinned: false
 	    });
 	} else {
 	    chrome.tabs.sendMessage(tabs[0].id, message, callback);
@@ -29,6 +29,17 @@ function send(message,callback) {
 }
 
 chrome.commands.onCommand.addListener(function(command){
-    console.log(command);
-    send({action: command});
+    if (command == "show") {
+	chrome.tabs.query({url: "https://play.spotify.com/*"},
+			  function(tabs) {
+			      if (tabs.length) {
+				  chrome.tabs.update(tabs[0].id,
+						     {selected:true});
+				  chrome.windows.update(tabs[0].windowId,
+							{focused:true});
+			      }
+			  });
+    } else {
+	send({action: command});
+    }
 });
