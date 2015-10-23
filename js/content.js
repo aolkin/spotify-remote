@@ -35,7 +35,7 @@ function updatePoller(justReturnData) {
 	newData.doc_title = document.title;
 	if (d.els.art && d.els.title && d.els.artist && d.els.current && d.els.duration) {
 	    newData.playing = d.els.playpause.classList.contains("playing");
-	    newData.art = d.els.art.style.backgroundImage.slice(4,-1);
+	    newData.art = d.els.art.style.backgroundImage.slice(5,-2);
 	    newData.itemuri = d.els.art.parentElement.parentElement.dataset.itemuri;
 	    if (justReturnData) {
 		return newData;
